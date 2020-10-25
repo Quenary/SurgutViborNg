@@ -1,4 +1,4 @@
-export interface ProtocolGeneral{
+export interface ProtocolGeneralModel{
     Count: number;
     CountCompleted: number;
     PrcntCompleted: bigint;
