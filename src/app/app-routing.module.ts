@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/campaign', pathMatch: 'full'},
+  { path: 'campaign', loadChildren: () => import('./campaign/campaign.module').then(m => m.CampaignModule) },
+  { path: 'voting/:id', loadChildren: () => import('./voting/voting.module').then(m => m.VotingModule) },
+  
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,0 +1,16 @@
+.campaign-box{
+    border-bottom: 1px solid lightgray;
+    font-size: large;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 1rem;
+}
+.campaign-box:hover{
+    outline: 1px solid lightgray;
+}
+.campaigns-container {
+    text-align: justify;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
