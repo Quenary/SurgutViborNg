@@ -19,7 +19,7 @@ export class CampaignService {
     return this.apiService.get(this.controller);
   }
 
-  public getById(id: number): Observable<CurrentCampaignModel> {
+  public getById(id: number): Observable<CampaignModel> {
     return this.apiService.get(`${this.controller}/${id}`);
   }
 
