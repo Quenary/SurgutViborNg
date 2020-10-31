@@ -1,16 +1,20 @@
 .campaign-box{
-    border-bottom: 1px solid lightgray;
+    border: 1px solid lightgray;
     font-size: large;
-    margin-right: 2rem;
-    margin-left: 2rem;
+    // margin-right: 2rem;
+    // margin-left: 2rem;
     padding: 1rem;
+    background: #ffffff;
 }
 .campaign-box:hover{
-    outline: 1px solid lightgray;
+    // outline: 1px solid lightgray;
+    background: #95ddff;
 }
 .campaigns-container {
     text-align: justify;
     margin: 0 auto;
+    // margin-left: 10vw;
+    // margin-right: 10vw;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }

@@ -1,2 +1,40 @@
-<p>voting works!</p>
-<h1>1234</h1>
+<div class="chart-container">
+    <canvas #chartCanvas></canvas>
+</div>
+
+<div class="table-container">
+
+    <mat-form-field appearance="standard">
+        <mat-label>УИК</mat-label>
+        <input matInput #searchBar maxlength="3" type="number">
+    </mat-form-field>
+
+    <table id="voting" class="table">
+        <tr>
+            <th rowspan="2">УИК</th>
+            <th class="time-header" colspan="2" *ngFor="let item of general">
+                {{item.Name}}
+            </th>
+        </tr>
+        <tr>
+            <ng-container *ngFor="let item of general">
+                <th>Абс.</th>
+                <th>%</th>
+            </ng-container>
+        </tr>
+        <tr>
+            <th>ИТОГО:</th>
+            <ng-container *ngFor="let item of general">
+                <th>{{item.VotedAbs}}</th>
+                <th>{{item.VotedPrcnt}}</th>
+            </ng-container>
+        </tr>
+        <tr *ngFor="let uik of uiksModels">
+            <td>{{uik.UikOrd}}</td>
+            <ng-container *ngFor="let item of uik.Items">
+                <td>{{item.VotedAbs}}</td>
+                <td>{{item.VotedPrcnt}}</td>
+            </ng-container>
+        </tr>
+    </table>
+</div>

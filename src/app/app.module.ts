@@ -1,3 +1,5 @@
+import { CurrentCampaignService } from './shared/current-campaign.service';
+import { VotingComponent } from './voting/voting.component';
 import { CoreModule } from './core/core.module';
 import { ConfigurationService } from './shared/configuration.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,8 +8,9 @@ import { APP_INITIALIZER } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
-import { Observable, ObservableInput, of } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { ProtocolComponent } from './protocol/protocol.component';
 
 export function appInit(config: ConfigurationService) {
   return () => config.load();
@@ -21,7 +24,10 @@ export function appInit(config: ConfigurationService) {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [
     {
@@ -29,7 +35,8 @@ export function appInit(config: ConfigurationService) {
       useFactory: appInit,
       multi: true,
       deps: [ConfigurationService]
-    }
+    },
+    CurrentCampaignService
   ],
   bootstrap: [AppComponent]
 })

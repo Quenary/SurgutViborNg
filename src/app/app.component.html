@@ -1,18 +1,22 @@
-<div class="header-container">
-    <h3>
+<div class="header-container" color="accent">
+    <div class="mat-display-3">
         Выборы в Сургуте
-    </h3>
+    </div>
 </div>
 <div class="buttons-container">
-    <button routerLink="/campaign" routerDirection="root">
+    <button mat-button color="primary" routerLink="/campaign" routerDirection="root">
         Кампании
     </button>
-    <button routerLink="/voting" routerDirection="root">
+    <button mat-button color="accent" (click)="navigateTo('voting')">
         Ход голосования
     </button>
-    <button  routerLink="/protocol" routerDirection="root">
+    <button mat-button color="warn"  (click)="navigateTo('protocol')">
         Результаты выборов
     </button>
+</div>
+
+<div class="currentCampaign">
+    {{currentCampaign?.Id}}
 </div>
 <router-outlet>
   

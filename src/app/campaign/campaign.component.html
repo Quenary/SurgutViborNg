@@ -1,6 +1,6 @@
 <div class="campaigns-container">
-    <div class="campaign-box" *ngFor="let item of campaigns" (click)="openVoting(item.Id)">
-        <h3>
+    <div class="campaign-box" *ngFor="let item of campaigns" (click)="openVoting(item)">
+        <h3 color="accent">
             {{item.VoteDate|date:'dd.MM.yyyy'}}
         </h3>
         <ol>

@@ -1,6 +1,7 @@
+import { CampaignModel } from './../core/models/campaign.model';
+import { CurrentCampaignService } from './../shared/current-campaign.service';
 import { CampaignService } from './../core/services/campaign.service';
 import { Component, OnInit } from '@angular/core';
-import { CampaignModel } from '../core/models/campaign.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +13,8 @@ export class CampaignComponent implements OnInit {
 
   constructor(
     private campaignService: CampaignService,
-    private router: Router
+    private router: Router,
+    private currentCampaignService: CurrentCampaignService
   ) { }
 
   public campaigns: CampaignModel[];
@@ -20,19 +22,16 @@ export class CampaignComponent implements OnInit {
   ngOnInit(): void {
     this.campaignService.get().subscribe({
       next: (res: CampaignModel[]) => {
-        console.log(res)
         this.campaigns = res;
       },
       error: (error) => {
-        console.log('error')
-      },
-      complete: () => {
-        console.log('completed')
+        console.log(error)
       }
     })
   }
 
-  public openVoting(id: string) {
-    this.router.navigateByUrl(`/voting/${id}`)
+  public openVoting(campaign: CampaignModel) {
+    this.currentCampaignService.setCurrentCampaign(campaign);
+    this.router.navigateByUrl(`/voting/${campaign.Id}`)
   }
 }
